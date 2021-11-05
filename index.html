@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./css/styles.css">
+  <title>Todo app</title>
+
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Todo</h1>
+      <div>
+        <button class="btn-theme">
+          <img src="./images/icon-moon.svg" alt="icon moon" class="theme-dark show-icon">
+          <img src="./images/icon-sun.svg" alt="icon sun" class="theme-light">
+        </button>
+        
+      </div>
+    </header>
+    <main>
+      <div class="input-task">
+        <span></span>
+        <label for="input-new-task" class="screen-reader-text">Digite uma nova tarefa (máximo de 50 caracteres)</label>
+        <input type="text" id="input-new-task" placeholder="Digite uma nova tarefa (máximo de 50 caracteres)">
+      </div>
+      
+      <ul class="list-tasks"></ul>
+      <div class="number-tasks"></div>  
+    </main>
+  
+    <footer class="footer">
+      Design by <a href="https://www.frontendmentor.io/" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://github.com/rodrigorvix/" target="_blank">Rodrigo Vitoriense</a>.
+    </footer>  
+  </div>
+ 
+  <script src="./js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+[data-theme='dark']:root {
+  --body-bg-color: hsl(235, 21%, 11%);
+  --text-color-title: hsl(0, 0%, 98%);
+  --text-color-default: hsl(236, 33%, 92%);
+  --text-color-checked: hsl(234, 39%, 85%);
+  --main-bg-color: hsl(235, 24%, 19%);
+  --border-color: hsl(237, 14%, 26%);
+}
+[data-theme='light']:root {
+  --body-bg-color: hsl(236, 33%, 92%);
+  --text-color-title: hsl(0, 0%, 98%);
+  --text-color-default: hsl(235, 19%, 35%);
+  --text-color-checked: hsl(236, 9%, 61%);
+  --main-bg-color: hsl(0, 0%, 98%);
+  --border-color: hsl(233, 11%, 84%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Josefin Sans', sans-serif;
+
+  font-size: 1.125rem;
+
+  background-image: url('../images/bg-desktop.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top center;
+
+  background-color: var(--body-bg-color);
+
+  transition: all 0.5s;
+}
+li {
+  list-style: none;
+}
+
+.container {
+  margin: 78px auto 20px;
+  max-width: 540px;
+
+  height: 80vh;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.header h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+  color: var(--text-color-title);
+}
+.btn-theme {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.show-icon {
+  display: none;
+}
+.input-task {
+  background-color: var(--main-bg-color);
+
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.input-task input[type='checkbox'] {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+.input-task span {
+  display: block;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+}
+.input-task input[type='text'] {
+  background-color: var(--main-bg-color);
+  color: var(--text-color-default);
+  font-size: 1rem;
+  border: none;
+  width: 100%;
+}
+.input-task input[type='text']:focus {
+  outline: none;
+}
+
+.list-tasks,
+.number-tasks {
+  background-color: var(--main-bg-color);
+  color: var(--text-color-default);
+}
+.list-tasks {
+  margin-top: 2rem;
+
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.list-tasks li {
+  display: flex;
+}
+.number-tasks {
+  display: none;
+  border: none;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.list-tasks li,
+.number-tasks {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+
+  justify-content: space-between;
+  align-items: center;
+
+  transition: all 0.3s;
+}
+.show-number-tasks {
+  display: flex;
+}
+
+.list-tasks li:hover {
+  opacity: 0.7;
+}
+.list-tasks li:hover > .btn-delete {
+  display: block;
+}
+.list-tasks .task-name {
+  font-size: 1rem;
+  align-self: flex-end;
+}
+.task-container {
+  position: relative;
+  cursor: pointer;
+  font-size: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkmark {
+  display: flex;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  margin-right: 8px;
+  border: 2px solid var(--border-color);
+  padding: 0.25rem;
+  color: white;
+}
+.icon-check {
+  display: none;
+}
+.task-checkbox:checked ~ .checkmark {
+  background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+.task-checkbox:checked ~ .checkmark .icon-check {
+  display: block;
+}
+.task-checkbox:checked ~ .task-name {
+  text-decoration: line-through;
+  color: var(--text-color-checked);
+}
+
+.task-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.btn-delete {
+  background: transparent;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+.footer {
+  margin-top: 6rem;
+  text-align: center;
+  color: var(--text-color-default);
+}
+.footer a {
+  color: hsl(220, 98%, 61%);
+  text-decoration: none;
+  transition: 0.5s;
+}
+.footer a:hover {
+  opacity: 0.7;
+}
+.screen-reader-text {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+@media (max-width: 900px) {
+  body {
+    background-image: url('../images/bg-mobile.jpg');
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    margin-top: 20px;
+    padding: 1rem;
+  }
+  .header h1 {
+    font-size: 2rem;
+  }
+  .input-task input[type='text'],
+  .task-container .task-name {
+    font-size: 0.75rem;
+  }
+  .list-tasks {
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  .task-name {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .footer {
+    font-size: 0.75rem;
+  }
+}
